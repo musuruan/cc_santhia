@@ -14,12 +14,14 @@ from bs4 import BeautifulSoup
 def main():
     BASEURL = "https://www.comune.santhia.vc.it/"
     PODCASTNAME = "audio_cc_santhia.xml"
-    PODCASTURL = "https://raw.githubusercontent.com/musuruan/cc_santhia/main/" + PODCASTNAME
+    GITHUBBASE = "https://raw.githubusercontent.com/musuruan/cc_santhia/main/"
+    PODCASTURL =  GITHUBBASE + PODCASTNAME
+    LOGOURL = GITHUBBASE + "logo.jpg"
 
     fg = FeedGenerator()
     fg.title("Registrazioni Consiglio Comunale Santhià")
     fg.description("Podcast non ufficiale con le registrazioni audio del Consiglio Comunale di Santhià")
-    fg.logo(BASEURL + "portals/1683/Skins/skinXhtml/Images/stemma.png")
+    fg.logo(LOGOURL)
     fg.link(href=PODCASTURL, rel="self")
     fg.load_extension("podcast")
     # https://podcasters.apple.com/support/1691-apple-podcasts-categories
