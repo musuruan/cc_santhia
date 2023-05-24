@@ -13,6 +13,7 @@ from bs4 import BeautifulSoup
 
 def main():
     BASEURL = "https://www.comune.santhia.vc.it/"
+    PODCASTPAGE = BASEURL + "registrazioni?RTipo=15"
     PODCASTNAME = "audio_cc_santhia.xml"
     GITHUBBASE = "https://raw.githubusercontent.com/musuruan/cc_santhia/main/"
     PODCASTURL =  GITHUBBASE + PODCASTNAME
@@ -22,13 +23,13 @@ def main():
     fg.title("Registrazioni Consiglio Comunale Santhià")
     fg.description("Podcast non ufficiale con le registrazioni audio del Consiglio Comunale di Santhià")
     fg.logo(LOGOURL)
+    fg.link(href=PODCASTPAGE, rel="alternate")
     fg.link(href=PODCASTURL, rel="self")
     fg.load_extension("podcast")
     # https://podcasters.apple.com/support/1691-apple-podcasts-categories
     fg.podcast.itunes_category("News", "Politics")
 
-    url = BASEURL + "registrazioni?RTipo=15"
-    html_text = requests.get(url).text
+    html_text = requests.get(PODCASTPAGE).text
     soup = BeautifulSoup(html_text, "html.parser")
     
     for recPage in soup.find("div", {"id": "ctl00_ContentPlaceHolder1_ctl00_SiscomRegistrazioni1_Panel1"}).find_all("a", {"class": "SiscomTitolo"}, href=True):
