@@ -51,7 +51,7 @@ def main():
                 if not mp3.startswith("http"):
                     mp3 = BASEURL + mp3
                 title = rec.text
-                dt = datetime.strptime(desc[desc.find("-")+2:] + " 23:00:00 +0100", "%d/%m/%Y %H:%M:%S %z")
+                dt = datetime.strptime(desc[desc.find("-")+2:] + " 21:00:00 +0100", "%d/%m/%Y %H:%M:%S %z")
                 fe.id(mp3)
                 fe.title(title)
                 fe.description(title)
