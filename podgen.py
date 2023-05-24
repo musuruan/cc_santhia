@@ -25,6 +25,7 @@ def main():
     fg.logo(LOGOURL)
     fg.link(href=PODCASTPAGE, rel="alternate")
     fg.link(href=PODCASTURL, rel="self")
+    fg.language("it-it")
     fg.load_extension("podcast")
     # https://podcasters.apple.com/support/1691-apple-podcasts-categories
     fg.podcast.itunes_category("News", "Politics")
