@@ -1,11 +1,5 @@
 #!/usr/bin/env python3
 
-# Requires:
-# python3-feedgen
-# https://pypi.org/project/feedgen/
-# python3-beautifulsoup4
-# https://pypi.org/project/beautifulsoup4/
-
 from datetime import datetime
 import requests
 from feedgen.feed import FeedGenerator
