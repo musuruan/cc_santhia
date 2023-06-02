@@ -5,14 +5,14 @@ import requests
 from feedgen.feed import FeedGenerator
 from bs4 import BeautifulSoup
 
-def main():
-    BASEURL = "https://www.comune.santhia.vc.it/"
-    PODCASTPAGE = BASEURL + "registrazioni?RTipo=15"
-    PODCASTNAME = "audio_cc_santhia.xml"
-    GITHUBBASE = "https://raw.githubusercontent.com/musuruan/cc_santhia/main/"
-    PODCASTURL =  GITHUBBASE + PODCASTNAME
-    LOGOURL = GITHUBBASE + "logo.jpg"
+BASEURL = "https://www.comune.santhia.vc.it/"
+PODCASTPAGE = BASEURL + "registrazioni?RTipo=15"
+PODCASTNAME = "audio_cc_santhia.xml"
+GITHUBBASE = "https://raw.githubusercontent.com/musuruan/cc_santhia/main/"
+PODCASTURL =  GITHUBBASE + PODCASTNAME
+LOGOURL = GITHUBBASE + "logo.jpg"
 
+def main():
     fg = FeedGenerator()
     fg.title("Registrazioni Consiglio Comunale Santhià")
     fg.description("Podcast non ufficiale con le registrazioni audio del Consiglio Comunale di Santhià")
