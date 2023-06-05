@@ -18,10 +18,9 @@ jobs:
         python-version: '3.11'
     - name: Install requirements
       run: pip install -r requirements.txt
-    - name: Get the data and analyze
+    - name: Generete podcast
       run: ./podgen.py
-      shell: bash
-    - name: Commit and push if it changed
+    - name: Commit updated podcast
       run: |-
         git config user.name "Automated"
         git config user.email "actions@users.noreply.github.com"
