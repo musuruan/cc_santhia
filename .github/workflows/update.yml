@@ -19,9 +19,7 @@ jobs:
     - name: Install requirements
       run: pip install -r requirements.txt
     - name: Get the data and analyze
-      run: |
-        chmod +x ./podgen.py
-        ./podgen.sh
+      run: ./podgen.py
       shell: bash
     - name: Commit and push if it changed
       run: |-
