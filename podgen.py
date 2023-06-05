@@ -18,7 +18,7 @@ def main():
     fg.description("Podcast non ufficiale con le registrazioni audio del Consiglio Comunale di Santhià")
     fg.logo(LOGOURL)
     fg.link(href=PODCASTPAGE, rel="alternate")
-    fg.language("it-it")
+    fg.language("it")
     fg.load_extension("podcast")
     # https://podcasters.apple.com/support/1691-apple-podcasts-categories
     fg.podcast.itunes_category("News", "Politics")
