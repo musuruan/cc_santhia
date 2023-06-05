@@ -1,3 +1,4 @@
+requests
 feedgen
 beautifulsoup4
 
