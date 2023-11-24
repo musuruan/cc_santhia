@@ -6,7 +6,7 @@ from feedgen.feed import FeedGenerator
 from bs4 import BeautifulSoup
 
 BASEURL = "https://www.comune.santhia.vc.it/"
-PODCASTPAGE = BASEURL + "registrazioni?RTipo=15"
+PODCASTPAGE = BASEURL + "registrazioni?RTipo=24"
 PODCASTNAME = "audio_cc_santhia.xml"
 GITHUBBASE = "https://raw.githubusercontent.com/musuruan/cc_santhia/main/"
 PODCASTURL =  GITHUBBASE + PODCASTNAME
@@ -34,7 +34,7 @@ def main():
         html_text = requests.get(url).text
         soup = BeautifulSoup(html_text, "html.parser")
         # Ci possono essere più registrazioni per consiglio comunale
-        desc = soup.find("h3").text
+        desc = soup.find("span", {"id": "ctl00_ContentPlaceHolder1_ctl00_SiscomDettaglioRegistrazioni1_lblDesc"}).text
         recs = soup.find("div", {"id": "ctl00_ContentPlaceHolder1_ctl00_SiscomDettaglioRegistrazioni1_Panel1"}).findAll("a", {"class": "SiscomLinkGrande"}, href=True)
         
         for rec in recs:
