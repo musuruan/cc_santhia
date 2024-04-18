@@ -26,16 +26,16 @@ def main():
     html_text = requests.get(PODCASTPAGE).text
     soup = BeautifulSoup(html_text, "html.parser")
     
-    for recPage in soup.find("div", {"id": "ctl00_ContentPlaceHolder1_ctl00_SiscomRegistrazioni1_Panel1"}).find_all("a", {"class": "SiscomTitolo"}, href=True):
+    for recPage in soup.find("div", {"id": "ctl00_ContentPlaceHolder1_ctl00_SiscomRegistrazioni1_Panel1"}).find_all("a", href=True):
         # parse mp3 page
         url = BASEURL + recPage["href"]
+        desc = recPage.text
         print(url)
         
         html_text = requests.get(url).text
         soup = BeautifulSoup(html_text, "html.parser")
         # Ci possono essere più registrazioni per consiglio comunale
-        desc = soup.find("span", {"id": "ctl00_ContentPlaceHolder1_ctl00_SiscomDettaglioRegistrazioni1_lblDesc"}).text
-        recs = soup.find("div", {"id": "ctl00_ContentPlaceHolder1_ctl00_SiscomDettaglioRegistrazioni1_Panel1"}).findAll("a", {"class": "SiscomLinkGrande"}, href=True)
+        recs = soup.find("div", {"id": "ctl00_ContentPlaceHolder1_ctl00_SiscomDettaglioRegistrazioni1_Panel1"}).findAll("a", href=True)
         
         for rec in recs:
             if rec is not None:
